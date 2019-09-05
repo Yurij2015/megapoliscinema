@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `megapoliscinema`.`movies`
     INDEX `fk_movies_genres_idx` (`genres_idgenre` ASC),
     CONSTRAINT `fk_movies_genres`
         FOREIGN KEY (`genres_idgenre`)
-            REFERENCES `megapoliscinema`.`genres` (`idgenre`)
+            REFERENCES `megapoliscinema`.`genres` (id)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION
 )
@@ -158,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `megapoliscinema`.`movies_has_actors`
             ON UPDATE NO ACTION,
     CONSTRAINT `fk_movies_has_actors_actors1`
         FOREIGN KEY (`actors_idactor`)
-            REFERENCES `megapoliscinema`.`actors` (`idactor`)
+            REFERENCES `megapoliscinema`.`actors` (id)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION
 )

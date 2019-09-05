@@ -12,9 +12,9 @@ use vendor\core\base\Model;
 class Main extends Model
 {
 
-    public $table = 'posts';
+    public $table = 'actors';
 //    public $pk = 'category_id';
-    public $pk = 'id';
+    public $pk = 'idactor';
 
 
 }

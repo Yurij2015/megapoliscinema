@@ -17,15 +17,14 @@ class MainController extends AppController
     public function indexAction()
     {
         $model = new Main();
-//        $res = $model->query("CREATE TABLE posts (id int primary key auto_increment, name varchar(50), content varchar(250))");
-        $posts = $model->findAll();
-        //$post = $model->findOne(2);
-//        $data = $model->findBySql("SELECT * FROM $model->table ORDER BY id DESC LIMIT 2");
-//        $data = $model->findBySql("SELECT * FROM $model->table WHERE name LIKE ?", ['%whe%']);
-        $data = $model->findLike('we', 'name');
-        debug($data);
 
-        $this->set(compact('posts'));
+        $actors = \R::findAll('actors');
+        $genres = \R::findAll('genres');
+        $menu = \R::findAll('menu');
+
+        $title = "Главная страница";
+        $this->set(compact('title', 'actors', 'menu', 'genres'));
+
 
     }
 }

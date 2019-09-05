@@ -10,16 +10,25 @@
 
 <hr>
 <div class="container">
+
+    <?= $title ?>
+
+    <ul class="nav nav-pills">
+        <?php foreach ($menu as $menuitem): ?>
+        <li><a href="<?=$menuitem['alias']?>"><?=$menuitem['menuitem']?></a></li>
+        <?php endforeach; ?>
+    </ul>
+
     <?php
-    if (!empty($posts)) {
-        foreach ($posts as $post) {
+    if (!empty($actors)) {
+        foreach ($actors as $actor) {
             ?>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title"> <?= $post['name'] ?></h3>
+                    <h3 class="panel-title"> <?= $actor['actorname'] ?></h3>
                 </div>
                 <div class="panel-body">
-                    <?= $post['content'] ?>
+                    <?= $actor['actorinfo'] ?>
                 </div>
             </div>
             <?php
