@@ -6,21 +6,27 @@
  * Time: 14:08
  */ ?>
 <div class="container">
-    <?php
-    if (!empty($actors)) {
-        foreach ($actors as $actor) {
-            ?>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title"> <?= $actor['actorname'] ?></h3>
-                </div>
-                <div class="panel-body">
-                    <?= $actor['actorinfo'] ?>
-                </div>
-            </div>
-            <?php
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>ФИО актера</th>
+            <th>Дополнительная информация</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        if (!empty($actors)) {
+            foreach ($actors as $actor) {
+                ?>
+                <tr>
+                    <td><?= $actor['actorname'] ?></td>
+                    <td><?= $actor['actorinfo'] ?></td>
+                </tr>
+                <?php
+            }
         }
-    }
-    ?>
+        ?>
+        </tbody>
+    </table>
     <a href="/actors/create" class="btn bg-primary">Добавить актера</a>
 </div>

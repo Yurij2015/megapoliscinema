@@ -14,7 +14,7 @@ use vendor\core\App;
 class ActorsController extends AppController
 {
 
-    // public $layout = 'main';
+    public $layout = 'main';
 
     public function indexAction()
     {
@@ -44,7 +44,7 @@ class ActorsController extends AppController
             $actor = new Actors();
             $data = $_POST;
             $actor->load($data);
-            if($actor->save('actors')) {
+            if ($actor->save('actors')) {
                 $_SESSION['success'] = 'Запись добавлена в базу данных';
             }
             redirect('actors');

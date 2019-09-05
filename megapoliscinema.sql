@@ -175,7 +175,7 @@ ALTER TABLE `actors`
 -- Индексы таблицы `booking`
 --
 ALTER TABLE `booking`
-  ADD PRIMARY KEY (`idbooking`),
+  ADD PRIMARY KEY (id),
   ADD KEY `fk_booking_sessions1_idx` (`sessions_idsession`),
   ADD KEY `fk_booking_customers1_idx` (`customers_idcustomer`),
   ADD KEY `fk_booking_cashiers1_idx` (`cashiers_idcashier`);
@@ -190,7 +190,7 @@ ALTER TABLE `cashiers`
 -- Индексы таблицы `customers`
 --
 ALTER TABLE `customers`
-  ADD PRIMARY KEY (`idcustomer`);
+  ADD PRIMARY KEY (id);
 
 --
 -- Индексы таблицы `genres`
@@ -240,7 +240,7 @@ ALTER TABLE `actors`
 -- AUTO_INCREMENT для таблицы `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `idbooking` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `cashiers`
@@ -252,7 +252,7 @@ ALTER TABLE `cashiers`
 -- AUTO_INCREMENT для таблицы `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `idcustomer` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `genres`
@@ -287,7 +287,7 @@ ALTER TABLE `sessions`
 --
 ALTER TABLE `booking`
   ADD CONSTRAINT `fk_booking_cashiers1` FOREIGN KEY (`cashiers_idcashier`) REFERENCES `cashiers` (`idcashier`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_booking_customers1` FOREIGN KEY (`customers_idcustomer`) REFERENCES `customers` (`idcustomer`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_booking_customers1` FOREIGN KEY (`customers_idcustomer`) REFERENCES `customers` (id) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_booking_sessions1` FOREIGN KEY (`sessions_idsession`) REFERENCES `sessions` (`idsession`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
