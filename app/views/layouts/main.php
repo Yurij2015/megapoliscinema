@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title><?= $title ?></title>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,7 +20,7 @@
 <div class="container">
     <ul class="nav nav-pills">
         <?php foreach ($menu as $menuitem): ?>
-            <li><a href="<?= $menuitem['alias'] ?>"><?= $menuitem['menuitem'] ?></a></li>
+            <li><a href="/<?= $menuitem['alias'] ?>"><?= $menuitem['menuitem'] ?></a></li>
         <?php endforeach; ?>
     </ul>
 </div>

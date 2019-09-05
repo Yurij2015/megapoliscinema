@@ -10,6 +10,7 @@ namespace app\controllers;
 
 
 use app\models\Main;
+use vendor\core\App;
 use vendor\core\base\Controller;
 
 class AppController extends Controller
@@ -21,7 +22,12 @@ class AppController extends Controller
     {
         parent::__construct($route);
         new Main;
-        $this->menu = \R::findAll('menu');
+
+        $this->menu = App::$app->cache->get('menu');
+        if (!$this->menu) {
+            $this->menu = \R::findAll('menu');
+            App::$app->cache->set('menu', $this->menu);
+        }
     }
 
 }

@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Default Template</title>
+    <title><?= $title ?></title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -20,9 +20,16 @@
     <![endif]-->
 </head>
 <body>
-<h1>Hello, world! Default</h1>
-<?=$content?>
-
+<?php if (!empty($menu)) : ?>
+    <div class="container">
+        <ul class="nav nav-pills">
+            <?php foreach ($menu as $menuitem): ?>
+                <li><a href="/<?= $menuitem['alias'] ?>"><?= $menuitem['menuitem'] ?></a></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
+<?= $content ?>
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

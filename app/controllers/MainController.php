@@ -9,7 +9,7 @@
 namespace app\controllers;
 
 use app\models\Main;
-
+use vendor\core\App;
 class MainController extends AppController
 {
     public $layout = 'main';
