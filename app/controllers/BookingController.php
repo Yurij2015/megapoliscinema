@@ -32,9 +32,12 @@ class BookingController extends AppController
     public function createAction()
     {
         $title = "Добавление брони";
-//        $this->set(compact('title'));
+        $cashiers = \R::findAll('cashiers');
+        $customers = \R::findAll('customers');
+        $sessions = \R::findAll('sessions');
+
         $menu = $this->menu;
-        $this->set(compact('title', 'booking', 'menu'));
+        $this->set(compact('title', 'cashiers', 'customers', 'sessions', 'menu'));
     }
 
     public function addAction()
