@@ -24,7 +24,7 @@ class DB
         require LIBS . '/rb.php';
         R::setup($db['dsn'], $db['user'], $db['pass']);
         R::freeze(TRUE);
-        R::fancyDebug(TRUE);
+//        R::fancyDebug(TRUE);
 
 
 //        $options = [

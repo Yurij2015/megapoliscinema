@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Main Template</title>
-
+    <title><?= $title ?></title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 
@@ -18,11 +17,16 @@
     <![endif]-->
 </head>
 <body>
-<h1>Hello, world! Main</h1>
-<?=$content?>
-
-<?= debug(\vendor\core\DB::$countSql)?>
-<?= debug(\vendor\core\DB::$queries)?>
+<div class="container">
+    <ul class="nav nav-pills">
+        <?php foreach ($menu as $menuitem): ?>
+            <li><a href="<?= $menuitem['alias'] ?>"><?= $menuitem['menuitem'] ?></a></li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<?= $content ?>
+<? //= debug(\vendor\core\DB::$countSql)?>
+<? //= debug(\vendor\core\DB::$queries)?>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"

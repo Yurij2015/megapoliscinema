@@ -20,11 +20,10 @@ class MainController extends AppController
 
         $actors = \R::findAll('actors');
         $genres = \R::findAll('genres');
-        $menu = \R::findAll('menu');
+        $menu = $this->menu;
 
         $title = "Главная страница";
         $this->set(compact('title', 'actors', 'menu', 'genres'));
-
 
     }
 }

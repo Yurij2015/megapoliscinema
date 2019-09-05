@@ -6,18 +6,9 @@
  * Time: 18:45
  */
 ?>
-<code><?= __FILE__ ?></code>
+<!--<code>--><?//= __FILE__ ?><!--</code>-->
 
-<hr>
 <div class="container">
-
-    <?= $title ?>
-
-    <ul class="nav nav-pills">
-        <?php foreach ($menu as $menuitem): ?>
-        <li><a href="<?=$menuitem['alias']?>"><?=$menuitem['menuitem']?></a></li>
-        <?php endforeach; ?>
-    </ul>
 
     <?php
     if (!empty($actors)) {

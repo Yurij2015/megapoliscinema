@@ -23,8 +23,6 @@
 <h1>Hello, world! Default</h1>
 <?=$content?>
 
-<?= debug(\vendor\core\DB::$countSql)?>
-<?= debug(\vendor\core\DB::$queries)?>
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
