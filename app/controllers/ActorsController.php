@@ -42,11 +42,13 @@ class ActorsController extends AppController
     {
         if (!empty($_POST)) {
             $actor = new Actors();
-            debug($actor);
-            debug($_POST);
-            die;
+            $data = $_POST;
+            $actor->load($data);
+            if($actor->save('actors')) {
+                $_SESSION['success'] = 'Запись добавлена в базу данных';
+            }
+            redirect('actors');
         }
     }
-
 
 }

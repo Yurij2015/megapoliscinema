@@ -9,3 +9,11 @@ function debug($arr)
 {
     echo '<pre>' . print_r($arr, true) . '</pre>';
 }
+
+function redirect($target) {
+
+    $redirect ="/$target/";
+
+    header("Location: $redirect");
+    exit;
+}

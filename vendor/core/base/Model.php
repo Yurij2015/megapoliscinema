@@ -30,7 +30,15 @@ abstract class Model
                 $this->attributes[$name] = $data[$name];
             }
         }
+    }
 
+    public function save($table)
+    {
+        $tbl = \R::dispense($table);
+        foreach ($this->attributes as $name => $value) {
+            $tbl->$name = $value;
+        }
+        return \R::store($tbl);
     }
 
     public function query($sql)
