@@ -9,18 +9,18 @@
     <table class="table table-hover">
         <thead>
         <tr>
-            <th>ФИО актера</th>
-            <th>Дополнительная информация</th>
+            <th>ФИО посетителя</th>
+            <th>Номер телефона</th>
         </tr>
         </thead>
         <tbody>
         <?php
-        if (!empty($actors)) {
-            foreach ($actors as $actor) {
+        if (!empty($customers)) {
+            foreach ($customers as $customer) {
                 ?>
                 <tr>
-                    <td><?= $actor['actorname'] ?></td>
-                    <td><?= $actor['actorinfo'] ?></td>
+                    <td><?= $customer['namecustomer'] ?></td>
+                    <td><?= $customer['phonecustomer'] ?></td>
                 </tr>
                 <?php
             }
@@ -28,5 +28,5 @@
         ?>
         </tbody>
     </table>
-    <a href="/cashiers/create" class="btn bg-primary">Добавить кассира</a>
+    <a href="/customers/create" class="btn bg-primary">Добавить посетителя</a>
 </div>

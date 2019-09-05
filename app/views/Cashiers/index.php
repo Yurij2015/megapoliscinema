@@ -9,18 +9,21 @@
     <table class="table table-hover">
         <thead>
         <tr>
-            <th>ФИО актера</th>
-            <th>Дополнительная информация</th>
+            <th>ФИО кассира</th>
+            <th>Номер телефона</th>
+            <th>Адрес</th>
+
         </tr>
         </thead>
         <tbody>
         <?php
-        if (!empty($actors)) {
-            foreach ($actors as $actor) {
+        if (!empty($cashiers)) {
+            foreach ($cashiers as $cashier) {
                 ?>
                 <tr>
-                    <td><?= $actor['actorname'] ?></td>
-                    <td><?= $actor['actorinfo'] ?></td>
+                    <td><?= $cashier['cashiername'] ?></td>
+                    <td><?= $cashier['cashierphone'] ?></td>
+                    <td><?= $cashier['cashieraddres'] ?></td>
                 </tr>
                 <?php
             }

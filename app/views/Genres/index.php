@@ -9,18 +9,18 @@
     <table class="table table-hover">
         <thead>
         <tr>
-            <th>ФИО актера</th>
-            <th>Дополнительная информация</th>
+            <th>Название</th>
+            <th>Описание</th>
         </tr>
         </thead>
         <tbody>
         <?php
-        if (!empty($actors)) {
-            foreach ($actors as $actor) {
+        if (!empty($genres)) {
+            foreach ($genres as $genre) {
                 ?>
                 <tr>
-                    <td><?= $actor['actorname'] ?></td>
-                    <td><?= $actor['actorinfo'] ?></td>
+                    <td><?= $genre['genrename'] ?></td>
+                    <td><?= $genre['genredescription'] ?></td>
                 </tr>
                 <?php
             }
@@ -28,5 +28,5 @@
         ?>
         </tbody>
     </table>
-    <a href="/cashiers/create" class="btn bg-primary">Добавить кассира</a>
+    <a href="/genres/create" class="btn bg-primary">Добавить жанр</a>
 </div>
