@@ -23,9 +23,15 @@
                 ?>
                 <tr>
                     <td><?= $bookingitem['date'] ?></td>
-                    <td><?= $bookingitem['customers_idcustomer'] ?></td>
-                    <td><?= $bookingitem['sessions_idsession'] ?></td>
-                    <td><?= $bookingitem['cashiers_idcashier'] ?></td>
+                    <?php $customers = R::load('customers', $bookingitem['customers_idcustomer']); ?>
+                    <td><?= $customers->namecustomer; ?></td>
+
+                    <?php $sessions = R::load('sessions', $bookingitem['sessions_idsession']); ?>
+                    <?php $movies = R::load('movies', $sessions['movies_idmovie']); ?>
+                    <td><?= $sessions->sessiondate . " " . $sessions->sessiontime . " " . $movies->moviename ?></td>
+
+                    <?php $cashiers = R::load('cashiers', $bookingitem['cashiers_idcashier']); ?>
+                    <td><?= $cashiers->cashiername ?></td>
                 </tr>
                 <?php $customers = R::load('customers', $bookingitem['customers_idcustomer']);
 //               var_dump($customers);

@@ -184,7 +184,7 @@ ALTER TABLE `booking`
 -- Индексы таблицы `cashiers`
 --
 ALTER TABLE `cashiers`
-  ADD PRIMARY KEY (`idcashier`);
+  ADD PRIMARY KEY (id);
 
 --
 -- Индексы таблицы `customers`
@@ -208,7 +208,7 @@ ALTER TABLE `menu`
 -- Индексы таблицы `movies`
 --
 ALTER TABLE `movies`
-  ADD PRIMARY KEY (`idmovie`),
+  ADD PRIMARY KEY (id),
   ADD KEY `fk_movies_genres_idx` (`genres_idgenre`);
 
 --
@@ -223,7 +223,7 @@ ALTER TABLE `movies_has_actors`
 -- Индексы таблицы `sessions`
 --
 ALTER TABLE `sessions`
-  ADD PRIMARY KEY (`idsession`),
+  ADD PRIMARY KEY (id),
   ADD KEY `fk_sessions_movies1_idx` (`movies_idmovie`);
 
 --
@@ -246,7 +246,7 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT для таблицы `cashiers`
 --
 ALTER TABLE `cashiers`
-  MODIFY `idcashier` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `customers`
@@ -270,13 +270,13 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT для таблицы `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `idmovie` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `sessions`
 --
 ALTER TABLE `sessions`
-  MODIFY `idsession` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -286,9 +286,9 @@ ALTER TABLE `sessions`
 -- Ограничения внешнего ключа таблицы `booking`
 --
 ALTER TABLE `booking`
-  ADD CONSTRAINT `fk_booking_cashiers1` FOREIGN KEY (`cashiers_idcashier`) REFERENCES `cashiers` (`idcashier`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_booking_cashiers1` FOREIGN KEY (`cashiers_idcashier`) REFERENCES `cashiers` (id) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_booking_customers1` FOREIGN KEY (`customers_idcustomer`) REFERENCES `customers` (id) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_booking_sessions1` FOREIGN KEY (`sessions_idsession`) REFERENCES `sessions` (`idsession`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_booking_sessions1` FOREIGN KEY (`sessions_idsession`) REFERENCES `sessions` (id) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Ограничения внешнего ключа таблицы `movies`
@@ -301,13 +301,13 @@ ALTER TABLE `movies`
 --
 ALTER TABLE `movies_has_actors`
   ADD CONSTRAINT `fk_movies_has_actors_actors1` FOREIGN KEY (`actors_idactor`) REFERENCES `actors` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_movies_has_actors_movies1` FOREIGN KEY (`movies_idmovie`) REFERENCES `movies` (`idmovie`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_movies_has_actors_movies1` FOREIGN KEY (`movies_idmovie`) REFERENCES `movies` (id) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Ограничения внешнего ключа таблицы `sessions`
 --
 ALTER TABLE `sessions`
-  ADD CONSTRAINT `fk_sessions_movies1` FOREIGN KEY (`movies_idmovie`) REFERENCES `movies` (`idmovie`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_sessions_movies1` FOREIGN KEY (`movies_idmovie`) REFERENCES `movies` (id) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
