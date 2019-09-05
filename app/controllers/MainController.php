@@ -18,12 +18,11 @@ class MainController extends AppController
     {
         $model = new Main();
 
-        $actors = \R::findAll('actors');
-        $genres = \R::findAll('genres');
+        $booking = \R::findAll('booking');
         $menu = $this->menu;
 
         $title = "Главная страница";
-        $this->set(compact('title', 'actors', 'menu', 'genres'));
+        $this->set(compact('title', 'booking', 'menu'));
 
     }
 }
